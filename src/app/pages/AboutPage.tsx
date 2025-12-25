@@ -156,19 +156,9 @@ export function AboutPage() {
                 <div className="space-y-3">
                   <h4 className="font-semibold text-sm">Languages 🌍</h4>
                   {languages.map((lang) => (
-                    <div key={lang.language}>
-                      <div className="flex justify-between text-sm mb-1">
-                        <span>{lang.language}</span>
-                        <span className="text-primary font-semibold">{lang.level}</span>
-                      </div>
-                      <div className="h-2 bg-muted rounded-full overflow-hidden">
-                        <motion.div 
-                          className="h-full bg-gradient-to-r from-primary to-secondary rounded-full"
-                          initial={{ width: 0 }}
-                          animate={{ width: `${lang.percentage}%` }}
-                          transition={{ duration: 1, delay: 0.5 }}
-                        />
-                      </div>
+                    <div key={lang.language} className="flex justify-between items-center text-sm py-2">
+                      <span className="font-medium">{lang.language}</span>
+                      <span className="text-primary font-semibold">{lang.level}</span>
                     </div>
                   ))}
                 </div>
