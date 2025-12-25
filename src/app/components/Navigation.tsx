@@ -57,26 +57,9 @@ export function Navigation({ currentPage, onNavigate }: NavigationProps) {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              <div className="flex items-center gap-2">
-                <div className="w-10 h-10 rounded-lg overflow-hidden shadow-lg border-2 border-primary/20">
-                  <img 
-                    src={profileConfig.avatar} 
-                    alt={profileConfig.name}
-                    className="w-full h-full object-cover"
-                    onError={(e) => {
-                      e.currentTarget.style.display = 'none';
-                      e.currentTarget.parentElement!.innerHTML = `
-                        <div class="w-full h-full bg-gradient-to-br from-primary to-secondary flex items-center justify-center">
-                          <span class="text-white font-bold text-xl">NH</span>
-                        </div>
-                      `;
-                    }}
-                  />
-                </div>
-                <span className="hidden sm:block font-semibold text-lg">
-                  PORTFOLIO
-                </span>
-              </div>
+              <span className="font-semibold text-xl">
+                PORTFOLIO
+              </span>
             </motion.div>
 
             {/* Desktop Menu */}
