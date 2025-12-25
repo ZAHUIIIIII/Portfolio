@@ -9,9 +9,11 @@ import {
   FileText, 
   Play,
   CircleCheck,
-  CircleAlert
+  CircleAlert,
+  X
 } from 'lucide-react';
 import { projects } from '../data/projects';
+import { useState } from 'react';
 
 interface ProjectDetailPageProps {
   projectId: number;
@@ -20,6 +22,7 @@ interface ProjectDetailPageProps {
 
 export function ProjectDetailPage({ projectId, onNavigate }: ProjectDetailPageProps) {
   const project = projects.find(p => p.id === projectId);
+  const [isImageModalOpen, setIsImageModalOpen] = useState(false);
   
   if (!project) {
     return (
@@ -116,7 +119,7 @@ export function ProjectDetailPage({ projectId, onNavigate }: ProjectDetailPagePr
         >
           {project.image ? (
             <div className="aspect-video bg-gray-100 dark:bg-gray-800 rounded-2xl mb-6 overflow-hidden relative cursor-pointer group"
-                 onClick={() => window.open(project.image, '_blank')}>
+                 onClick={() => setIsImageModalOpen(true)}>
               <img 
                 src={project.image} 
                 alt={project.name}
@@ -321,6 +324,27 @@ export function ProjectDetailPage({ projectId, onNavigate }: ProjectDetailPagePr
           )}
         </motion.div>
       </div>
+
+      {/* Image Modal */}
+      {isImageModalOpen && project.image && (
+        <div 
+          className="fixed inset-0 z-50 bg-black/90 flex items-center justify-center p-4"
+          onClick={() => setIsImageModalOpen(false)}
+        >
+          <button
+            onClick={() => setIsImageModalOpen(false)}
+            className="absolute top-4 right-4 p-2 bg-white/10 hover:bg-white/20 rounded-full transition-colors z-10"
+          >
+            <X className="w-6 h-6 text-white" />
+          </button>
+          <img 
+            src={project.image} 
+            alt={project.name}
+            className="max-w-full max-h-full object-contain"
+            onClick={(e) => e.stopPropagation()}
+          />
+        </div>
+      )}
     </div>
   );
 }
