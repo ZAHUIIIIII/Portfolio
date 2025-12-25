@@ -186,7 +186,7 @@ export function HomePage({ onNavigate }: HomePageProps) {
                 {/* Image Container */}
                 <div className="relative aspect-square rounded-3xl overflow-hidden border-4 border-primary/20 shadow-2xl bg-gradient-to-br from-card to-card/50 backdrop-blur">
                   <img
-                    src={profileConfig.avatar}
+                    src={profileConfig.homeAvatar}
                     alt={profileConfig.name}
                     className="w-full h-full object-cover"
                     onError={(e) => {

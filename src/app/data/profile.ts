@@ -12,6 +12,9 @@ export const profileConfig = {
   // Put your profile image in /public/images/profile/
   // Then update the path below (e.g., '/images/profile/avatar.jpg')
   avatar: '/images/profile/avatar.jpg',
+  
+  // Avatar for home page hero section (can be different from general avatar)
+  homeAvatar: '/images/profile/home-avatar.jpg',
 
   // ========================================
   // BASIC INFORMATION
