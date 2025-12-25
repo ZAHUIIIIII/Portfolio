@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Toaster } from './components/ui/sonner';
 import { ThemeProvider } from './context/ThemeContext';
 import { Navigation } from './components/Navigation';
@@ -14,8 +14,30 @@ import { ContactPage } from './pages/ContactPage';
 type Page = 'home' | 'about' | 'projects' | 'project-detail' | 'skills' | 'experience' | 'contact';
 
 export default function App() {
-  const [currentPage, setCurrentPage] = useState<Page>('home');
-  const [selectedProjectId, setSelectedProjectId] = useState<number | null>(null);
+  // Initialize from URL hash
+  const getInitialPage = (): Page => {
+    const hash = window.location.hash.slice(1); // Remove #
+    const validPages: Page[] = ['home', 'about', 'projects', 'project-detail', 'skills', 'experience', 'contact'];
+    return validPages.includes(hash as Page) ? (hash as Page) : 'home';
+  };
+
+  const getInitialProjectId = (): number | null => {
+    const params = new URLSearchParams(window.location.hash.split('?')[1] || '');
+    const id = params.get('id');
+    return id ? parseInt(id) : null;
+  };
+
+  const [currentPage, setCurrentPage] = useState<Page>(getInitialPage);
+  const [selectedProjectId, setSelectedProjectId] = useState<number | null>(getInitialProjectId);
+
+  // Update URL when page changes
+  useEffect(() => {
+    if (currentPage === 'project-detail' && selectedProjectId) {
+      window.location.hash = `${currentPage}?id=${selectedProjectId}`;
+    } else {
+      window.location.hash = currentPage;
+    }
+  }, [currentPage, selectedProjectId]);
 
   const handleNavigate = (page: string, projectId?: number) => {
     setCurrentPage(page as Page);
