@@ -86,7 +86,7 @@ export function AboutPage() {
 
   const languages = [
     { language: 'Vietnamese', level: 'Native', percentage: 100 },
-    { language: 'English', level: 'Professional Working', percentage: 85 },
+    { language: 'English', level: 'VSTEP B2', percentage: 85 },
   ];
 
   const values = [
