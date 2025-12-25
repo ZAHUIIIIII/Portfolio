@@ -183,23 +183,47 @@ export function HomePage({ onNavigate }: HomePageProps) {
                 <div className="absolute -top-4 -right-4 w-72 h-72 bg-gradient-to-r from-primary to-secondary rounded-full blur-3xl opacity-20" />
                 <div className="absolute -bottom-4 -left-4 w-72 h-72 bg-gradient-to-r from-secondary to-accent rounded-full blur-3xl opacity-20" />
                 
-                {/* Image Container */}
-                <div className="relative aspect-square rounded-3xl overflow-hidden border-4 border-primary/20 shadow-2xl bg-gradient-to-br from-card to-card/50 backdrop-blur">
-                  <img
-                    src={profileConfig.homeAvatar}
-                    alt={profileConfig.name}
-                    className="w-full h-full object-cover"
-                    onError={(e) => {
-                      // Fallback if image doesn't exist
-                      e.currentTarget.style.display = 'none';
-                      e.currentTarget.parentElement!.innerHTML = `
-                        <div class="w-full h-full flex items-center justify-center bg-gradient-to-br from-primary via-secondary to-accent">
-                          <span class="text-9xl font-bold text-white">NH</span>
-                        </div>
-                      `;
-                    }}
-                  />
-                </div>
+                {/* Image Container with floating animation */}
+                <motion.div
+                  animate={{ 
+                    y: [0, -10, 0],
+                  }}
+                  transition={{
+                    duration: 3,
+                    repeat: Infinity,
+                    ease: "easeInOut"
+                  }}
+                  className="relative aspect-square rounded-3xl overflow-hidden shadow-2xl group"
+                  style={{
+                    background: 'linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(139, 92, 246, 0.1) 100%)',
+                    padding: '4px'
+                  }}
+                  whileHover={{ scale: 1.02 }}
+                >
+                  {/* Gradient Border Effect */}
+                  <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-primary via-secondary to-accent opacity-30 group-hover:opacity-50 transition-opacity duration-300" />
+                  
+                  {/* Image */}
+                  <div className="relative w-full h-full rounded-3xl overflow-hidden bg-gradient-to-br from-card to-card/50 backdrop-blur">
+                    <img
+                      src={profileConfig.homeAvatar}
+                      alt={profileConfig.name}
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                      onError={(e) => {
+                        // Fallback if image doesn't exist
+                        e.currentTarget.style.display = 'none';
+                        e.currentTarget.parentElement!.innerHTML = `
+                          <div class="w-full h-full flex items-center justify-center bg-gradient-to-br from-primary via-secondary to-accent">
+                            <span class="text-9xl font-bold text-white">NH</span>
+                          </div>
+                        `;
+                      }}
+                    />
+                  </div>
+                  
+                  {/* Shine Effect on Hover */}
+                  <div className="absolute inset-0 rounded-3xl bg-gradient-to-tr from-transparent via-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+                </motion.div>
               </div>
             </motion.div>
           </div>
