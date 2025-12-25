@@ -41,7 +41,7 @@ export function Footer({ onNavigate }: FooterProps) {
                   className="w-full h-full object-cover"
                 />
               </div>
-              <span className="font-semibold text-lg">PORTFOLIO</span>
+              <span className="font-semibold text-lg">{profileConfig.name}</span>
             </div>
             <p className="text-muted-foreground mb-4 max-w-md">
               Full-Stack Developer & Mobile Specialist passionate about creating innovative 
