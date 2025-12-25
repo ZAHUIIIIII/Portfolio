@@ -23,6 +23,7 @@ interface ProjectDetailPageProps {
 export function ProjectDetailPage({ projectId, onNavigate }: ProjectDetailPageProps) {
   const project = projects.find(p => p.id === projectId);
   const [isImageModalOpen, setIsImageModalOpen] = useState(false);
+  const [selectedScreenshot, setSelectedScreenshot] = useState<string | null>(null);
   
   if (!project) {
     return (
@@ -228,7 +229,7 @@ export function ProjectDetailPage({ projectId, onNavigate }: ProjectDetailPagePr
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1 }}
                   className="aspect-video bg-gray-100 dark:bg-gray-800 rounded-xl overflow-hidden cursor-pointer shadow-md hover:shadow-xl transition-all group relative"
-                  onClick={() => window.open(screenshot, '_blank')}
+                  onClick={() => setSelectedScreenshot(screenshot)}
                 >
                   <img 
                     src={screenshot} 
@@ -340,6 +341,27 @@ export function ProjectDetailPage({ projectId, onNavigate }: ProjectDetailPagePr
           <img 
             src={project.image} 
             alt={project.name}
+            className="max-w-full max-h-full object-contain"
+            onClick={(e) => e.stopPropagation()}
+          />
+        </div>
+      )}
+
+      {/* Screenshot Modal */}
+      {selectedScreenshot && (
+        <div 
+          className="fixed inset-0 z-50 bg-black/90 flex items-center justify-center p-4"
+          onClick={() => setSelectedScreenshot(null)}
+        >
+          <button
+            onClick={() => setSelectedScreenshot(null)}
+            className="absolute top-4 right-4 p-2 bg-white/10 hover:bg-white/20 rounded-full transition-colors z-10"
+          >
+            <X className="w-6 h-6 text-white" />
+          </button>
+          <img 
+            src={selectedScreenshot} 
+            alt="Screenshot"
             className="max-w-full max-h-full object-contain"
             onClick={(e) => e.stopPropagation()}
           />
