@@ -1,5 +1,6 @@
 import { Github, Linkedin, Mail, Youtube, ArrowUp } from 'lucide-react';
 import { Button } from './ui/button';
+import { profileConfig } from '../data/profile';
 
 interface FooterProps {
   onNavigate: (page: string) => void;
@@ -33,14 +34,18 @@ export function Footer({ onNavigate }: FooterProps) {
           {/* Brand */}
           <div className="md:col-span-2">
             <div className="flex items-center gap-2 mb-4">
-              <div className="w-10 h-10 bg-gradient-to-br from-primary to-secondary rounded-lg flex items-center justify-center shadow-lg">
-                <span className="text-white font-bold text-xl">NH</span>
+              <div className="w-10 h-10 rounded-lg overflow-hidden shadow-lg border-2 border-primary/20">
+                <img 
+                  src={profileConfig.avatar} 
+                  alt="Portfolio"
+                  className="w-full h-full object-cover"
+                />
               </div>
-              <span className="font-semibold text-lg">Nguyễn Lê Gia Huy</span>
+              <span className="font-semibold text-lg">PORTFOLIO</span>
             </div>
             <p className="text-muted-foreground mb-4 max-w-md">
               Full-Stack Developer & Mobile Specialist passionate about creating innovative 
-              solutions. Available for freelance work and full-time opportunities. 🚀
+              solutions. Available for freelance work and full-time opportunities.
             </p>
             <div className="flex gap-3">
               {socialLinks.map((social) => (
@@ -100,7 +105,7 @@ export function Footer({ onNavigate }: FooterProps) {
         {/* Bottom Bar */}
         <div className="pt-8 border-t border-border flex flex-col sm:flex-row justify-between items-center gap-4">
           <p className="text-muted-foreground text-sm text-center sm:text-left">
-            © 2025 Nguyễn Lê Gia Huy. All rights reserved. Made with ❤️ and ☕
+            © 2025 {profileConfig.name}. All rights reserved. Made with ❤️ and ☕
           </p>
           <Button
             variant="outline"

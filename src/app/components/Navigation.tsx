@@ -74,7 +74,7 @@ export function Navigation({ currentPage, onNavigate }: NavigationProps) {
                   />
                 </div>
                 <span className="hidden sm:block font-semibold text-lg">
-                  {profileConfig.name}
+                  PORTFOLIO
                 </span>
               </div>
             </motion.div>
