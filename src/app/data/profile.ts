@@ -28,7 +28,7 @@ export const profileConfig = {
   // ========================================
   // Upload your CV to /public/files/ or use an external link
   // Example: '/files/CV_YourName.pdf' or 'https://drive.google.com/...'
-  cvLink: '/files/Bản sao CV chính thức.pdf',
+  cvLink: '/files/NguyenLeGiaHuy_cv.pdf',
   
   // ========================================
   // CONTACT INFORMATION
