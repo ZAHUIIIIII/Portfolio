@@ -96,7 +96,7 @@ export function ContactPage() {
       
       setIsSubmitting(false);
       setIsSuccess(true);
-      toast.success('Message sent successfully! I\'ll get back to you within 24-48 hours.');
+      toast.success("Message sent successfully! I'll get back to you within 24-48 hours.");
 
       setFormData({ name: '', email: '', subject: '', message: '' });
       setTimeout(() => setIsSuccess(false), 5000);
