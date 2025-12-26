@@ -186,7 +186,7 @@ export const projects: Project[] = [
     duration: "6 months",
     role: "Full-Stack Developer",
     team: "Team of 4",
-    status: "In Development",
+    status: "Completed",
     image: '/images/projects/requirements-mgmt.jpg'
   }
 ];
