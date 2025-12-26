@@ -283,7 +283,7 @@ export function ContactPage() {
                     <Input
                       id="name"
                       name="name"
-                      placeholder="John Doe"
+                      placeholder="Huy Nguyen"
                       value={formData.name}
                       onChange={(e) => handleInputChange('name', e.target.value)}
                       className={`h-12 border-2 bg-background transition-all ${
@@ -314,7 +314,7 @@ export function ContactPage() {
                       id="email"
                       name="email"
                       type="email"
-                      placeholder="john@example.com"
+                      placeholder="huynguyen@example.com"
                       value={formData.email}
                       onChange={(e) => handleInputChange('email', e.target.value)}
                       className={`h-12 border-2 bg-background transition-all ${
