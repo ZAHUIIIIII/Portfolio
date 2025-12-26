@@ -278,7 +278,7 @@ export function ContactPage() {
                     className="space-y-2"
                   >
                     <Label htmlFor="name" className="text-base">
-                      Full Name <span className="text-red-500">*</span>
+                      Full Name
                     </Label>
                     <Input
                       id="name"
@@ -308,7 +308,7 @@ export function ContactPage() {
                     className="space-y-2"
                   >
                     <Label htmlFor="email" className="text-base">
-                      Email Address <span className="text-red-500">*</span>
+                      Email Address 
                     </Label>
                     <Input
                       id="email"
@@ -339,7 +339,7 @@ export function ContactPage() {
                     className="space-y-2"
                   >
                     <Label htmlFor="subject" className="text-base">
-                      Subject <span className="text-red-500">*</span>
+                      Subject
                     </Label>
                     <Select
                       value={formData.subject}
@@ -377,7 +377,7 @@ export function ContactPage() {
                     className="space-y-2"
                   >
                     <Label htmlFor="message" className="text-base">
-                      Message <span className="text-red-500">*</span>
+                      Message
                     </Label>
                     <Textarea
                       id="message"
