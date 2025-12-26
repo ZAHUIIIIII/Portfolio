@@ -143,7 +143,7 @@ export const projects: Project[] = [
     featured: false,
     duration: "4 months",
     role: "Android Developer",
-    team: "Team of 3",
+    team: "Solo",
     status: "Completed",
     image: '/images/projects/axure/Picture1.png',
     screenshots: [
@@ -166,7 +166,7 @@ export const projects: Project[] = [
     featured: false,
     duration: "3 months",
     role: "Data Analyst",
-    team: "Team of 2",
+    team: "Solo",
     status: "Completed",
     image: '/images/projects/visual/2.png',
     screenshots: [

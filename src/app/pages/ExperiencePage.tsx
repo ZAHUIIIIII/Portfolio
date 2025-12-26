@@ -8,8 +8,8 @@ export function ExperiencePage() {
   const education = {
     university: 'University of Greenwich (Vietnam)',
     degree: 'BSc (Hons) Computing',
-    period: '2022 - 2025',
-    location: 'Ho Chi Minh City, Vietnam',
+    period: '2022 - Present',
+    location: 'Da Nang, Vietnam',
     modules: [
       'Software Engineering',
       'Database Systems',
@@ -266,7 +266,7 @@ export function ExperiencePage() {
                               {[
                                 { label: 'Duration', value: project.duration, icon: '⏱️' },
                                 { label: 'Role', value: project.role, icon: '👤' },
-                                { label: 'Team', value: project.team, icon: '👥' },
+                                { label: 'Solo', value: project.team, icon: '👥' },
                                 { label: 'Type', value: project.category, icon: '🏷️' },
                               ].map((item, i) => (
                                 <motion.div 
