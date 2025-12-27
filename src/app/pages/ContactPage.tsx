@@ -5,13 +5,6 @@ import { Input } from '../components/ui/input';
 import { Textarea } from '../components/ui/textarea';
 import { Label } from '../components/ui/label';
 import { Card, CardContent } from '../components/ui/card';
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from '../components/ui/select';
 import { 
   Mail, 
   Phone, 
@@ -30,7 +23,6 @@ export function ContactPage() {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    subject: '',
     message: '',
   });
   const [errors, setErrors] = useState<Record<string, string>>({});
@@ -52,10 +44,6 @@ export function ContactPage() {
       newErrors.email = 'Email is required';
     } else if (!validateEmail(formData.email)) {
       newErrors.email = 'Please enter a valid email';
-    }
-
-    if (!formData.subject) {
-      newErrors.subject = 'Please select a subject';
     }
 
     if (!formData.message || formData.message.length < 20) {
@@ -86,7 +74,6 @@ export function ContactPage() {
         {
           from_name: formData.name,
           from_email: formData.email,
-          subject: formData.subject,
           message: formData.message,
           to_email: 'leeminhuy47@gmail.com'
         }
@@ -98,7 +85,7 @@ export function ContactPage() {
       setIsSuccess(true);
       toast.success("Message sent successfully! I'll get back to you within 24-48 hours.");
 
-      setFormData({ name: '', email: '', subject: '', message: '' });
+      setFormData({ name: '', email: '', message: '' });
       setTimeout(() => setIsSuccess(false), 5000);
       
     } catch (error: any) {
@@ -331,49 +318,11 @@ export function ContactPage() {
                     )}
                   </motion.div>
 
-                  {/* Subject */}
+                  {/* Message */
                   <motion.div 
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.6 }}
-                    className="space-y-2"
-                  >
-                    <Label htmlFor="subject" className="text-base">
-                      Subject
-                    </Label>
-                    <Select
-                      value={formData.subject}
-                      onValueChange={(value) => handleInputChange('subject', value)}
-                      name="subject"
-                    >
-                      <SelectTrigger className={`h-12 border-2 bg-background transition-all ${
-                        errors.subject 
-                          ? 'border-red-500' 
-                          : 'hover:border-primary/50 focus:border-primary'
-                      }`}>
-                        <SelectValue placeholder="What can I help you with?" />
-                      </SelectTrigger>
-                      <SelectContent>
-                        <SelectItem value="general">General Inquiry</SelectItem>
-                        <SelectItem value="project">Project Opportunity</SelectItem>
-                        <SelectItem value="freelance">Freelance Work</SelectItem>
-                        <SelectItem value="collaboration">Collaboration</SelectItem>
-                        <SelectItem value="other">Other</SelectItem>
-                      </SelectContent>
-                    </Select>
-                    {errors.subject && (
-                      <div className="flex items-center gap-1 text-sm text-red-500">
-                        <CircleAlert className="w-4 h-4" />
-                        {errors.subject}
-                      </div>
-                    )}
-                  </motion.div>
-
-                  {/* Message */}
-                  <motion.div 
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.7 }}
                     className="space-y-2"
                   >
                     <Label htmlFor="message" className="text-base">
@@ -406,12 +355,12 @@ export function ContactPage() {
                       </div>
                     </div>
                   </motion.div>
-
+}
                   {/* Submit Button */}
                   <motion.div
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.8 }}
+                    transition={{ delay: 0.7 }}
                   >
                     <Button 
                       type="submit" 
