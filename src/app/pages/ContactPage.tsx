@@ -145,11 +145,11 @@ export function ContactPage() {
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.2 }}
-            className="space-y-6"
+            className="space-y-6 lg:flex lg:flex-col"
           >
-            <Card className="border-2 shadow-lg hover:shadow-xl transition-shadow">
-              <CardContent className="p-6 space-y-5">
-                <h3 className="font-semibold text-xl mb-4 text-gray-900 dark:text-gray-100 flex items-center gap-2">
+            <Card className="border-2 shadow-lg hover:shadow-xl transition-shadow lg:flex-1">
+              <CardContent className="p-6 space-y-4">
+                <h3 className="font-semibold text-xl text-gray-900 dark:text-gray-100 flex items-center gap-2 mb-6">
                   <div className="w-2 h-2 bg-primary rounded-full"></div>
                   Contact Information
                 </h3>
@@ -201,11 +201,11 @@ export function ContactPage() {
 
             <Card className="border-2 shadow-lg hover:shadow-xl transition-shadow">
               <CardContent className="p-6">
-                <h3 className="font-semibold text-xl mb-4 text-gray-900 dark:text-gray-100 flex items-center gap-2">
+                <h3 className="font-semibold text-xl text-gray-900 dark:text-gray-100 flex items-center gap-2 mb-6">
                   <div className="w-2 h-2 bg-primary rounded-full"></div>
                   Connect With Me
                 </h3>
-                <div className="space-y-2">
+                <div className="space-y-3">
                   <motion.a 
                     href={profileConfig.social.github}
                     whileHover={{ x: 5 }}
@@ -236,10 +236,10 @@ export function ContactPage() {
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.3 }}
-            className="lg:col-span-2"
+            className="lg:col-span-2 lg:flex lg:flex-col"
           >
-            <Card className="border-2 shadow-xl">
-              <CardContent className="p-8">
+            <Card className="border-2 shadow-xl lg:flex-1">
+              <CardContent className="p-8 h-full flex flex-col">
                 {isSuccess && (
                   <motion.div
                     initial={{ opacity: 0, scale: 0.95 }}
@@ -256,7 +256,7 @@ export function ContactPage() {
                   </motion.div>
                 )}
 
-                <form onSubmit={handleSubmit} className="space-y-6">
+                <form onSubmit={handleSubmit} className="space-y-6 flex-1 flex flex-col">
                   {/* Name */}
                   <motion.div 
                     initial={{ opacity: 0, y: 10 }}
@@ -323,7 +323,7 @@ export function ContactPage() {
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.6 }}
-                    className="space-y-2"
+                    className="space-y-2 flex-1 flex flex-col"
                   >
                     <Label htmlFor="message" className="text-base">
                       Message
@@ -332,10 +332,9 @@ export function ContactPage() {
                       id="message"
                       name="message"
                       placeholder="Tell me about your project or inquiry..."
-                      rows={6}
                       value={formData.message}
                       onChange={(e) => handleInputChange('message', e.target.value)}
-                      className={`border-2 bg-background transition-all resize-none ${
+                      className={`border-2 bg-background transition-all resize-none flex-1 min-h-[200px] ${
                         errors.message 
                           ? 'border-red-500 focus:ring-red-500 focus-visible:ring-red-500' 
                           : 'hover:border-primary/50 focus-visible:border-primary'
