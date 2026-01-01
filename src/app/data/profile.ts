@@ -74,7 +74,7 @@ export const profileConfig = {
     { name: 'SQL', icon: 'https://cdn.simpleicons.org/mysql/4479A1' },
     { name: 'Firebase', icon: 'https://cdn.simpleicons.org/firebase/FFCA28' },
     { name: 'Docker', icon: 'https://cdn.simpleicons.org/docker/2496ED' },
-    { name: 'AWS', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original-wordmark.svg' },
+    // { name: 'AWS', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original-wordmark.svg' },
     { name: 'Figma', icon: 'https://cdn.simpleicons.org/figma/F24E1E' },
   ],
 };
